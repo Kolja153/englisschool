@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lessons</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ lesson.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ lesson.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ lesson.content }}</td>
+            </tr>
+            <tr>
+                <th>Coursesid</th>
+                <td>{{ lesson.coursesId }}</td>
+            </tr>
+            <tr>
+                <th>Isactive</th>
+                <td>{% if lesson.isActive %}Yes{% else %}No{% endif %}</td>
+            </tr>
+         
+        </tbody>
+    </table>
+
+{{ lesson.content | raw }}
+
+
+    <ul>
+        <li>
+            <a href="{{ path('lessons_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('lessons_edit', { 'id': lesson.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

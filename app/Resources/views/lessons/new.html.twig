@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lessons creation</h1>
+{#{{ form(form, {attr: {class: "form-horizontal form-label-left input_mask"}}) }}#}
+    {{ form_start(form) }}
+
+    <div class="row">
+          <div class="col-md-5">
+              {{ form_label(form.title) }}
+              {{ form_widget(form.title) }}
+         </div>
+          <div class="col-md-5"> 
+            {{ form_label(form.coursesId) }}
+            {{ form_widget(form.coursesId) }}
+        </div>
+         <div class="col-md-2"> 
+            {{ form_label(form.isActive) }}
+            {{ form_widget(form.isActive) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content) }}
+         </div>
+       
+    </div>
+    <p></p>
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+           <input type="submit" value="Create"   class="btn btn-default"/>
+        </div>
+     </div>
+    {{ form_end(form) }}
+
+
+
+    <ul>
+        <li>
+            <a href="{{ path('lessons_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

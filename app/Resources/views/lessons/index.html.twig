@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lessons list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Coursesid</th>
+                <th>Isactive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lesson in lessons %}
+            <tr>
+                <td><a href="{{ path('lessons_show', { 'id': lesson.id }) }}">{{ lesson.id }}</a></td>
+                <td>{{ lesson.title }}</td>
+                <td>{{ lesson.content }}</td>
+                <td>{{ lesson.coursesId }}</td>
+                <td>{% if lesson.isActive %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('lessons_show', { 'id': lesson.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('lessons_edit', { 'id': lesson.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('lessons_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

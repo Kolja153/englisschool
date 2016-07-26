@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+       
+    </head>
+    <body>
+        <div class="row">
+          <div class="col-md-2">
+              <ul class="nav nav-pills nav-stacked">
+                      <li role="presentation" class="active"><a href="/admin/users/">users</a></li>
+                      <li role="presentation"><a href="/admin/courses/">Courses</a></li>
+                      <li role="presentation"><a href="/admin/lessons">Lessons</a></li>
+                       <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i> Log out</a></li>
+                </ul>
+         </div>
+          <div class="col-md-8">{% block body %}{% endblock %}</div>
+        </div>
+
+
+        
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

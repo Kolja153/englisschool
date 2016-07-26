@@ -1,0 +1,20 @@
+admin:
+    resource: "@AdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+login:
+    pattern: /auth/login
+    defaults: {_controller: AppBundle:Security:login}
+ 
+
+login_check:
+    pattern:   /login_check
+
+
+logout:
+    pattern:  /logout
